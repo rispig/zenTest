@@ -5,11 +5,14 @@ $(function () {
 
     Mustache.parse(template);
 
-    $('.profile-id').keypress(function (e) {
-        if (e.keyCode === 13) {
-            $('.search').click();
-        }
-    });
+    $('.profile-id')
+        .keypress(function (e) {
+            if (e.keyCode === 13) {
+                $('.search').click();
+            }
+        })
+        .focus();
+
     $('.search')
         .click(function() {
         var pId        = $('.profile-id').val(),
@@ -61,17 +64,20 @@ function refreshView(template, stats, profile) {
         return "online";
     }
 
-    var deaths = getStatValueByName("total_deaths"),
-        kills  = getStatValueByName("total_kills"),
-        wins   = getStatValueByName("total_matches_won"),
-        played = getStatValueByName("total_matches_played"),
-        hits   = getStatValueByName("total_shots_hit"),
-        fired  = getStatValueByName("total_shots_fired"),
-        mvp    = getStatValueByName("total_mvps"),
-        time   = getStatValueByName("total_time_played") / 60;
+    var deaths    = getStatValueByName("total_deaths"),
+        kills     = getStatValueByName("total_kills"),
+        wins      = getStatValueByName("total_matches_won"),
+        played    = getStatValueByName("total_matches_played"),
+        hits      = getStatValueByName("total_shots_hit"),
+        fired     = getStatValueByName("total_shots_fired"),
+        mvp       = getStatValueByName("total_mvps"),
+        time      = getStatValueByName("total_time_played") / 60;
+        headshots = getStatValueByName("total_kills_headshot");
 
 
     var options = {
+        kills    : kills,
+        deaths   : deaths,
         kdr      : (kills/deaths).toFixed(2),
         name     : profile.personaname,
         avatar   : profile.avatarfull,
@@ -79,7 +85,8 @@ function refreshView(template, stats, profile) {
         winRate  : ((wins/played) * 100).toFixed(2),
         accuracy : ((hits/fired) * 100).toFixed(2),
         mvp      : mvp,
-        time     : Math.floor(time/60)+"h." + Math.floor(time%60)+"m."
+        time     : Math.floor(time/60)+"h." + Math.floor(time%60)+"m.",
+        headshot : (headshots/kills).toFixed(2)
     };
 
     $('.widget').html(Mustache.render(template, options));

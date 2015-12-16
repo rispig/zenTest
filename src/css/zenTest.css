@@ -26,8 +26,10 @@ body {
 }
 
 .widget .name {
-    position    : relative;
-    text-indent : 30px;
+    position      : relative;
+    text-indent   : 30px;
+    margin-top    : 3px;
+    margin-bottom : 8px;
 }
 .widget .name::before {
     content       : " ";
@@ -53,6 +55,7 @@ body {
 }
 
 .widget .stats-container {
+    font-size         : 16px;
     flex              : 1 0 auto;
     height            : 184px;
     background-image  : url("http://allgames4.me/wp-content/uploads/2014/11/Counter-Strike-Global-Offensive.jpg");
@@ -68,12 +71,24 @@ body {
     justify-content   : flex-start;
     align-content     : stretch;
     align-items       : flex-start;
+    margin-bottom     : 5px;
 }
 
 .widget .stats-container i.fa{
-    margin-right : 5px;
-    flex         : 0 1 16px;
+    margin-right : 10px;
+    font-size    : 18px;
+    flex         : 0 1 18px;
+    position     : relative;
 }
+
+.widget .stats-container .headshot .fa-crosshairs{
+    margin-right: 0;
+    position: absolute;
+    font-size: 9px;
+    top: -4px;
+    right: -2px;
+}
+
 .widget .stats-container .stat,
 .widget .stats-container .stat-value {
     margin : 0;

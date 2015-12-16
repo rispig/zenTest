@@ -12,7 +12,7 @@
     <script id="template" type="x-tmpl-mustache">
         <div class="avatar" style="background-image:url({{avatar}})" />
         <div class="stats-container">
-            <h2 class="stat name {{status}}">{{name}}</h2>
+            <h2 class="name {{status}}">{{name}}</h2>
             <div class="stat-row">
                 <i class="fa fa-times-circle-o"></i>
                 <div class="stat">K/D Ratio:</div>
@@ -27,6 +27,13 @@
                 <i class="fa fa-crosshairs"></i>
                 <div class="stat">Accuracy:</div>
                 <div class="stat-value">{{accuracy}}%</div>
+            </div>
+            <div class="stat-row headshot">
+                <i class="fa fa-user">
+                    <i class="fa fa-crosshairs"></i>
+                </i>
+                <div class="stat">Headshot%:</div>
+                <div class="stat-value">{{headshot}}%</div>
             </div>
             <div class="stat-row">
                 <i class="fa fa-star-o"></i>
