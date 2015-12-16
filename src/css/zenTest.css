@@ -1,0 +1,80 @@
+body {
+    font-family        : "Halvetica";
+    color              : white;
+    text-shadow:
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+.widget {
+    margin          : 10px;
+    display         : flex;
+    flex-direction  : row;
+    flex-wrap       : nowrap;
+    justify-content : flex-start;
+    align-content   : stretch;
+    align-items     : flex-start;
+}
+
+.widget .avatar {
+    flex              : 0 0 184px;
+    height            : 184px;
+    background-repeat : no-repeat;
+    position          : relative;
+}
+
+.widget .name {
+    position    : relative;
+    text-indent : 30px;
+}
+.widget .name::before {
+    content       : " ";
+    position      : absolute;
+    top           : 50%;
+    margin-top    : -7px;
+    left          : 0px;
+    height        : 15px;
+    width         : 15px;
+    border-radius : 50%;
+}
+
+.widget .name.online::before {
+    background-color: green;
+}
+
+.widget .name.away::before {
+    background-color: yellow;
+}
+
+.widget .name.offline::before {
+    background-color: red;
+}
+
+.widget .stats-container {
+    flex              : 1 0 auto;
+    height            : 184px;
+    background-image  : url("http://allgames4.me/wp-content/uploads/2014/11/Counter-Strike-Global-Offensive.jpg");
+    background-repeat : no-repeat;
+    background-size   : 100% 100%;
+    padding-left      : 10px;
+}
+
+.widget .stats-container .stat-row {
+    display           : flex;
+    flex-direction    : row;
+    flex-wrap         : nowrap;
+    justify-content   : flex-start;
+    align-content     : stretch;
+    align-items       : flex-start;
+}
+
+.widget .stats-container i.fa{
+    margin-right : 5px;
+    flex         : 0 1 16px;
+}
+.widget .stats-container .stat,
+.widget .stats-container .stat-value {
+    margin : 0;
+    flex   : 1 1 0;
+}
