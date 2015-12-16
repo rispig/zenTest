@@ -20,11 +20,15 @@ $(function () {
             stats: function (callback) {
                 $.getJSON('https://jsonp.afeld.me/?callback=?&url='+statsUrl, function(data){
                     callback(null, data);
+                }).fail(function (xhr, text) {
+                    callback(text);
                 });
             },
             profile: function (callback) {
                 $.getJSON('https://jsonp.afeld.me/?callback=?&url='+profileUrl, function(data){
                     callback(null, data);
+                }).fail(function (xhr, text) {
+                    callback(text);
                 });
             }
         },
@@ -44,7 +48,7 @@ function refreshView(template, stats, profile) {
 
     function getStateClass(state) {
         var offline = {0:"1", 2:"1"},
-            away = {3:"1", 4:"1"};
+            away    = {3:"1", 4:"1"};
 
         if (state in offline) {
             return "offline";
