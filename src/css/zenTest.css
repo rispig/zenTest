@@ -82,11 +82,11 @@ body {
 }
 
 .widget .stats-container .headshot .fa-crosshairs{
-    margin-right: 0;
-    position: absolute;
-    font-size: 9px;
-    top: -4px;
-    right: -2px;
+    margin-right : 0;
+    position     : absolute;
+    font-size    : 9px;
+    top          : -4px;
+    right        : -2px;
 }
 
 .widget .stats-container .stat,
